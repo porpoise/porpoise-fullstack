@@ -4,11 +4,11 @@ const express = require("express");
 const app = express();
 
 // Make JS bundles accessible:
-app.use(express.static(path.resolve(__dirname, "dist")));
+app.use("/public", express.static(path.resolve(__dirname, "dist")));
 
 // Make all static assets accessible:
 try {
-    app.use(express.static(path.resolve(__dirname, "public")));
+    app.use("/public", express.static(path.resolve(__dirname, "public")));
 }
 catch (err) {}
 
