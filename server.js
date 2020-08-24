@@ -4,10 +4,30 @@ const express = require("express");
 const app = express();
 
 // Make JS bundles accessible:
-app.use(express.static(path.resolve(__dirname, "../dist")));
+app.use(express.static(path.resolve(__dirname, "dist")));
 
 // Make all static assets accessible:
-app.use(express.static(path.resolve(__dirname, "../public")));
+try {
+    app.use(express.static(path.resolve(__dirname, "public")));
+}
+catch (err) {}
 
-app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "../index.html")));
-app.listen(3000, () => console.log("Web server up at PORT :3000"));
+// Register API routes before adding SPA catch-all:
+try {
+    const apiRouter = require("./api");
+    app.use("/api", apiRouter);
+}
+catch (err) {}
+
+// SPA catch-all
+app.get("*", (req, res) => res.sendFile(path.resolve(__dirname, "index.html")));
+
+// Listen:
+app.listen(process.env.PORT || 3000, () => console.log(
+    "\n" +
+    "[:::::::::::::::::::::::::]\n" +
+    "[:::::::::::::::::::::::::]\n" +
+    "[::::::WEB:SERVER:UP::::::]\n" +
+    "[:::::::::::::::::::::::::]\n" +
+    "[:::::::::::::::::::::::::]"
+));

@@ -15,10 +15,11 @@
     "webpack-cli": "^3.3.12"
   },
   "scripts": {
-    "serve": "node server/index.js",
-    "build": "webpack",
-    "test": "nodemon server/index.js"
+    "start": "webpack && node server.js",
+    "dev": "nodemon server.js",
+
+    "watch": "webpack --watch"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "raghav misra",
+  "license": "MIT"
 }
