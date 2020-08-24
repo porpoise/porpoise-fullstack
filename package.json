@@ -1,0 +1,24 @@
+{
+  "name": "porpoise-app",
+  "version": "1.0.0",
+  "description": "A Porpoise-built SPA, with an Express API layer.",
+  "main": "app.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "porpoise": "^2.1.7",
+    "porpoise-router": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "scripts": {
+    "serve": "node server/index.js",
+    "build": "webpack",
+    "test": "nodemon server/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
