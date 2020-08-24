@@ -19,6 +19,12 @@ Click on [use this template](https://github.com/porpoise/porpoise-fullstack/gene
 ### PROD
 `npm run start` (Build client and start server).
 
+## What's `/api/index.js`?
+This allows you to specify API routes, accessible at `localhost:3000/api/ROUTE`.
+It's essentially an `express.Router` instance. 
+Use the example route already in there for more help.
+
+
 ## Changing things:
 
 Literally nothing is forced, preset, or hidden. Everything is exposed.
